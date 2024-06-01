@@ -1,4 +1,4 @@
-import time.sleep
+import time
 
 print("Running build")
 time.sleep(10)
