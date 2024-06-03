@@ -10,9 +10,12 @@ pipeline {
 
     stage ("Checkout") {
       steps {
-        checkout([$class: 'GitSCM',
-                  branches: [[name: 'main']],
-                  doGenerateSubmoduleConfigurations: false])
+        script {
+          def repoUrl = params.GIT_URL
+          checkout([$class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[url: repoUrl]]])
+        }
       }
     }
     
