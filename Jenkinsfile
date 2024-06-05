@@ -21,14 +21,15 @@ pipeline {
     
     stage ("Build") {
       steps {
-        sh "python3 --version"
-        sh "python3 -m venv venv"
         sh '''#!/bin/bash
+          python3 -m venv venv
+          python3 --version
           source venv/bin/activate
           pip install -r requirements.txt
         '''
       }
     }
+
     stage ("Test") {
       steps {
         sh """#!/bin/bash
@@ -38,4 +39,5 @@ pipeline {
       }
     }
   }
+
 }
