@@ -18,6 +18,8 @@ pipeline {
             echo "${key} -> ${value}"
           }
         }
+        echo("Test if shell exit 0 interrupts pipeline execution")
+        sh("exit 0")
       }
     }
 
