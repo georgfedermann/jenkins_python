@@ -8,6 +8,17 @@ pipeline {
 
   stages {
 
+    stage ("Debug") {
+      steps {
+        sh("printenv")
+        script {
+          println("Hello, World!")
+          println("env var:")
+          println(env)
+        }
+      }
+    }
+
     stage ("Checkout") {
       steps {
         script {
