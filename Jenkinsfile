@@ -12,10 +12,10 @@ pipeline {
       steps {
         sh("printenv")
         script {
-          println("Hello, World!")
-          println("env var:")
-          env.getEnvironment{ k, v ->
-            echo "${k} -> ${v}"
+          echo("Hello, World!")
+          echo("env var:")
+          for (envVar in env.getEnvironment()) {
+            echo "${envVar.key} -> ${envVar.value}"
           }
         }
       }
