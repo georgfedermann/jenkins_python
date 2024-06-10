@@ -14,7 +14,7 @@ pipeline {
         script {
           echo("Hello, World!")
           echo("env var:")
-          env.getEnvironmnet().each { key, value ->
+          env.getEnvironment().each { key, value ->
             echo "${key} -> ${value}"
           }
         }
