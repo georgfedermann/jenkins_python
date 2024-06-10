@@ -14,7 +14,9 @@ pipeline {
         script {
           println("Hello, World!")
           println("env var:")
-          println(env)
+          env.each { k, v ->
+            echo "${k} -> ${v}"
+          }
         }
       }
     }
